@@ -15,11 +15,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const updateToggleIcon = (theme) => {
         if (!themeToggle) return;
-        const icon = themeToggle.querySelector('i');
+        // The SVG animation is now handled primarily by CSS data-theme selectors
+        // but we can add an extra rotation effect for flair
+        const svg = themeToggle.querySelector('svg');
         if (theme === 'light') {
-            icon.classList.replace('fa-moon', 'fa-sun');
+            svg.style.transform = 'rotate(180deg)';
         } else {
-            icon.classList.replace('fa-sun', 'fa-moon');
+            svg.style.transform = 'rotate(0deg)';
         }
     };
 

@@ -151,7 +151,17 @@
     <nav class="navbar">
         <div class="container">
             <a href="index.html" class="logo">
-                <img src="assets/images/xova-logo.png" alt="Xova Logo" class="logo-img">
+                <svg class="xova-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#2E7BFF" />
+                            <stop offset="100%" stop-color="#8A6BFF" />
+                        </linearGradient>
+                    </defs>
+                    <path class="x-path" d="M 30 20 L 70 80 M 70 20 L 30 80" stroke="url(#logoGrad)" stroke-width="8" stroke-linecap="round" fill="none" />
+                    <circle class="dot" cx="50" cy="50" r="6" fill="#00E5FF" />
+                    <path d="M 15 50 L 30 50 M 70 50 L 85 50" stroke="url(#logoGrad)" stroke-width="4" stroke-linecap="round" opacity="0.5" />
+                </svg>
                 <span class="brand-name">XOVA</span>
             </a>
             <div class="nav-links">
@@ -161,7 +171,19 @@
                 <a href="about.html" class="active">About</a>
                 <a href="contact.html">Contact</a>
                 <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle Theme">
-                    <i class="fa-solid fa-moon"></i>
+                    <svg class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5" fill="currentColor" />
+                        <g class="sun-rays">
+                            <line x1="12" y1="1" x2="12" y2="3" />
+                            <line x1="12" y1="21" x2="12" y2="23" />
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                            <line x1="1" y1="12" x2="3" y2="12" />
+                            <line x1="21" y1="12" x2="23" y2="12" />
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                        </g>
+                    </svg>
                 </button>
             </div>
             <button class="mobile-menu-btn">
@@ -190,9 +212,35 @@
                     <p>Our vision is to become the premier architectural firm for the digital age, constructing AI-native platforms that don't just compute data, but truly understand human intent and aesthetic.</p>
                 </div>
                 <div class="story-image reveal-right">
-                    <div class="logo-container">
-                        <img src="assets/Logo.jpeg" alt="XOVA Vision" class="hero-main-logo">
-                        <div class="logo-glow"></div>
+                    <div class="vision-visual">
+                        <div class="vision-orb-container">
+                            <svg class="vision-orb-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <radialGradient id="orbGrad" cx="50%" cy="50%" r="50%">
+                                        <stop offset="0%" stop-color="#00E5FF" stop-opacity="0.8" />
+                                        <stop offset="70%" stop-color="#2E7BFF" stop-opacity="0.4" />
+                                        <stop offset="100%" stop-color="#2E7BFF" stop-opacity="0" />
+                                    </radialGradient>
+                                    <linearGradient id="neuralGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#00E5FF" />
+                                        <stop offset="100%" stop-color="#8A6BFF" />
+                                    </linearGradient>
+                                </defs>
+                                <circle cx="100" cy="100" r="70" fill="url(#orbGrad)">
+                                    <animate attributeName="r" values="65;75;65" dur="4s" repeatCount="indefinite" />
+                                </circle>
+                                <path d="M 60 60 Q 100 20 140 60 T 60 60" fill="none" stroke="url(#neuralGrad)" stroke-width="2" opacity="0.4">
+                                    <animateTransform attributeName="transform" type="rotate" from="0 100 100" to="360 100 100" dur="10s" repeatCount="indefinite" />
+                                </path>
+                                <path d="M 60 140 Q 100 180 140 140 T 60 140" fill="none" stroke="url(#neuralGrad)" stroke-width="2" opacity="0.4">
+                                    <animateTransform attributeName="transform" type="rotate" from="360 100 100" to="0 100 100" dur="15s" repeatCount="indefinite" />
+                                </path>
+                                <circle cx="100" cy="100" r="10" fill="white" opacity="0.8">
+                                    <animate attributeName="opacity" values="0.8;0.4;0.8" dur="2s" repeatCount="indefinite" />
+                                </circle>
+                            </svg>
+                            <div class="vision-glow"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -272,7 +320,17 @@
             <div class="footer-grid reveal">
                 <div class="footer-brand">
                     <a href="index.html" class="logo">
-                        <img src="assets/images/xova-logo.png" alt="Xova Digital Solutions Logo" class="logo-img">
+                        <svg class="xova-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="footerLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#2E7BFF" />
+                                    <stop offset="100%" stop-color="#8A6BFF" />
+                                </linearGradient>
+                            </defs>
+                            <path class="x-path" d="M 30 20 L 70 80 M 70 20 L 30 80" stroke="url(#footerLogoGrad)" stroke-width="8" stroke-linecap="round" fill="none" />
+                            <circle class="dot" cx="50" cy="50" r="6" fill="#00E5FF" />
+                        </svg>
+                        <span class="brand-name">XOVA</span>
                     </a>
                     <p>A premium digital agency creating exceptional web experiences and AI-powered products for
                         forward-thinking brands.</p>
