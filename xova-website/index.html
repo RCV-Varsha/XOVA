@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xova Digital Solutions | A Narrative Journey</title>
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress-container">
+        <div class="scroll-progress-bar" id="scrollProgress"></div>
+    </div>
+
+    <!-- ================= NAVIGATION BAR ================= -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-bolt logo-accent"></i> XOVA
+            </a>
+            
+            <div class="nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="services.html">Services</a>
+                <a href="projects.html">Projects</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+
+            <button class="mobile-menu-btn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ================= HERO SECTION ================= -->
+    <section class="hero" id="home">
+        <div class="hero-bg-shapes">
+            <div class="dot-grid"></div>
+            <div class="particles" id="heroParticles"></div>
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+        <div class="container hero-content">
+            <div class="hero-badge">Xova Digital Solutions</div>
+            <h1 class="reveal">Build Powerful <span class="text-gradient">Websites</span> & <span class="text-gradient">AI Products</span></h1>
+            <p class="reveal" style="transition-delay: 0.1s;">We design modern digital platforms and intelligent systems that help businesses grow.</p>
+            <div class="hero-cta reveal" style="transition-delay: 0.2s;">
+                <a href="#problem" class="btn btn-primary">Start The Journey</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SCENE 1: THE PROBLEM ================= -->
+    <section id="problem" class="trust-stats" style="background:var(--dark);">
+        <div class="bg-grid broken-grid"></div>
+        <div class="container scene-wrapper">
+            <div class="section-header reveal">
+                <span class="text-accent" style="font-weight: 700; letter-spacing: 2px;">THE PROBLEM</span>
+                <h2 class="section-title">Outdated Technology Is Holding You Back</h2>
+                <p class="section-subtitle">Inefficient legacy systems limit your potential. Fragmented data, slow platforms, and a lack of intelligence leave you vulnerable to disruption.</p>
+            </div>
+            
+            <div class="fade-blocks reveal">
+                <div class="fade-block"></div>
+                <div class="fade-block"></div>
+                <div class="fade-block"></div>
+                <div class="fade-block"></div>
+                <div class="fade-block"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SCENE 2: THE OPPORTUNITY ================= -->
+    <section id="opportunity" style="background:var(--dark-surface);">
+        <div class="container scene-wrapper text-center">
+            <div class="section-header reveal">
+                <span class="text-primary" style="font-weight: 700; letter-spacing: 2px;">THE OPPORTUNITY</span>
+                <h2 class="section-title">Unlocking Digital <span class="text-gradient">Transformation</span></h2>
+                <div class="flowing-line-container">
+                    <div class="flowing-line-fill"></div>
+                </div>
+                <p class="section-subtitle">Imagine a synchronized digital ecosystem where your web presence is flawless and your data flows directly into intelligent AI engines, accelerating growth.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SCENE 3: INTRODUCING XOVA ================= -->
+    <section id="introducing" class="trust-stats">
+        <div class="container scene-wrapper">
+            <div class="section-header reveal">
+                <span class="text-secondary" style="font-weight: 700; letter-spacing: 2px; color:var(--secondary)">INTRODUCING XOVA</span>
+                <h2 class="section-title">We Build The <span class="text-gradient">Future</span></h2>
+            </div>
+            <div class="stats-grid reveal">
+                <div class="stat-item">
+                    <div class="stat-number" data-target="150+">0</div>
+                    <div class="stat-label">Projects Delivered</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="120+">0</div>
+                    <div class="stat-label">Happy Clients</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="3x">0</div>
+                    <div class="stat-label">Growth Rate</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SCENE 4: WHAT WE BUILD ================= -->
+    <section id="services">
+        <div class="container scene-wrapper">
+            <div class="section-header reveal">
+                <span class="text-accent" style="font-weight: 700; letter-spacing: 2px;">WHAT WE BUILD</span>
+                <h2 class="section-title">Our Capabilities</h2>
+                <p class="section-subtitle">From beautiful frontend layers to highly complex backend intelligence.</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card glass-card reveal">
+                    <div class="service-icon"><i class="fa-solid fa-code"></i></div>
+                    <h3>Custom Websites</h3>
+                    <p>Blazing fast, highly aesthetic web platforms optimized for extreme conversion.</p>
+                </div>
+                <div class="service-card glass-card reveal" style="transition-delay: 0.1s;">
+                    <div class="service-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+                    <h3>Mobile Applications</h3>
+                    <p>Native-feeling, cross-platform apps built with modern reactive frameworks.</p>
+                </div>
+                <div class="service-card glass-card reveal" style="transition-delay: 0.2s;">
+                    <div class="service-icon"><i class="fa-solid fa-robot"></i></div>
+                    <h3>AI Chatbots</h3>
+                    <p>Intelligent, context-aware agents capable of human-like customer service.</p>
+                </div>
+                <div class="service-card glass-card reveal" style="transition-delay: 0.3s;">
+                    <div class="service-icon"><i class="fa-solid fa-brain"></i></div>
+                    <h3>RAG Systems</h3>
+                    <p>Retrieval-Augmented Generation engines syncing your private data to LLMs.</p>
+                </div>
+                <div class="service-card glass-card reveal" style="transition-delay: 0.4s;">
+                    <div class="service-icon"><i class="fa-solid fa-chart-line"></i></div>
+                    <h3>Recommendation Engines</h3>
+                    <p>Machine learning models predicting user behavior and maximizing engagement.</p>
+                </div>
+                <div class="service-card glass-card reveal" style="transition-delay: 0.5s;">
+                    <div class="service-icon"><i class="fa-solid fa-microchip"></i></div>
+                    <h3>AI Product Development</h3>
+                    <p>End-to-end architecture and deployment of brand new AI-powered startups.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SCENE 5: AI-POWERED SOLUTIONS ================= -->
+    <section class="solutions pb-0">
+        <!-- Chroma Grid Background -->
+        <div class="chroma-waves"></div>
+        <div class="chroma-grid-bg"></div>
+
+        <div class="container scene-wrapper">
+            <div class="section-header reveal text-center">
+                <span style="color:white; font-weight: 700; letter-spacing: 2px;">THE AI-POWERED FUTURE</span>
+                <h2 class="section-title">A New Level of <span class="text-gradient" style="color:var(--primary)">Intelligence</span></h2>
+                <p class="section-subtitle">We weave predictive AI deeply into your technology stack, creating products that learn, adapt, and scale automatically.</p>
+            </div>
+            
+            <div class="solutions-grid" style="margin-top: 4rem;">
+                <div class="solutions-content reveal-left">
+                    <div class="solutions-list">
+                        <div class="solution-item">
+                            <div class="solution-icon"><i class="fa-solid fa-brain"></i></div>
+                            <div class="solution-text">
+                                <h4>Deep Learning Infrastructure</h4>
+                                <p>Deploy scalable models directly into production environments.</p>
+                            </div>
+                        </div>
+                        <div class="solution-item">
+                            <div class="solution-icon"><i class="fa-solid fa-network-wired"></i></div>
+                            <div class="solution-text">
+                                <h4>Vector Data Lakes</h4>
+                                <p>Structure your unstructured data for semantic search.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="solutions-visual reveal-right">
+                    <div class="orbit orbit-1"><div class="orbit-node"><i class="fa-solid fa-database"></i></div></div>
+                    <div class="orbit orbit-2">
+                        <div class="orbit-node"><i class="fa-solid fa-server"></i></div>
+                        <div class="orbit-node"><i class="fa-solid fa-cloud"></i></div>
+                    </div>
+                    <div class="orbit orbit-3"><div class="orbit-node"><i class="fa-solid fa-mobile"></i></div></div>
+                    <div class="ai-core">
+                        <i class="fa-solid fa-microchip"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SCENE 6: HOW WE WORK ================= -->
+    <section class="process" id="process">
+        <div class="container scene-wrapper">
+            <div class="section-header reveal">
+                <span class="text-primary" style="font-weight: 700; letter-spacing: 2px;">DEVELOPMENT PROCESS</span>
+                <h2 class="section-title">How We <span class="text-gradient">Work</span></h2>
+                <p class="section-subtitle">A transparent, agile pipeline designed for speed and quality.</p>
+            </div>
+
+            <div class="timeline-container">
+                <div class="timeline-line">
+                    <div class="timeline-progress"></div>
+                </div>
+                
+                <div class="timeline-steps">
+                    <div class="timeline-step">
+                        <div class="step-dot"></div>
+                        <div class="step-content">
+                            <div class="step-number">01</div>
+                            <div class="step-text">
+                                <h3>Idea Discussion</h3>
+                                <p>Deep dive into your requirements and business goals.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-step">
+                        <div class="step-dot"></div>
+                        <div class="step-content">
+                            <div class="step-number">02</div>
+                            <div class="step-text">
+                                <h3>Prototype Design</h3>
+                                <p>Wireframes, UI/UX, and architectural diagrams.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-step">
+                        <div class="step-dot"></div>
+                        <div class="step-content">
+                            <div class="step-number">03</div>
+                            <div class="step-text">
+                                <h3>Client Feedback</h3>
+                                <p>Rapid iteration based on your reviews.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-step">
+                        <div class="step-dot"></div>
+                        <div class="step-content">
+                            <div class="step-number">04</div>
+                            <div class="step-text">
+                                <h3>Development</h3>
+                                <p>Writing clean, scalable code and training models.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-step">
+                        <div class="step-dot"></div>
+                        <div class="step-content">
+                            <div class="step-number">05</div>
+                            <div class="step-text">
+                                <h3>Launch</h3>
+                                <p>Deployment to production and ongoing support.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SCENE 7: PROJECT SHOWCASE ================= -->
+    <section class="projects">
+        <div class="container scene-wrapper">
+            <div class="section-header reveal">
+                <span class="text-accent" style="font-weight: 700; letter-spacing: 2px;">SUCCESS STORIES</span>
+                <h2 class="section-title">Project <span class="text-gradient">Showcase</span></h2>
+            </div>
+            
+            <div class="projects-grid">
+                <div class="project-card reveal">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Financial Data Analyzer" loading="lazy">
+                    </div>
+                    <div class="project-overlay">
+                        <span class="project-category">AI Integration</span>
+                        <h3 class="project-title">Financial Data Analyzer</h3>
+                        <a href="projects.html" class="view-project-btn">Read Story <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="project-card reveal" style="transition-delay: 0.1s;">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Global E-Commerce Dashboard" loading="lazy">
+                    </div>
+                    <div class="project-overlay">
+                        <span class="project-category">Web Platform</span>
+                        <h3 class="project-title">Global E-Commerce Dashboard</h3>
+                        <a href="projects.html" class="view-project-btn">Read Story <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="project-card reveal" style="transition-delay: 0.2s;">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Predictive Sales Engine" loading="lazy">
+                    </div>
+                    <div class="project-overlay">
+                        <span class="project-category">Machine Learning</span>
+                        <h3 class="project-title">Predictive Sales Engine</h3>
+                        <a href="projects.html" class="view-project-btn">Read Story <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center" style="margin-top: 3rem;">
+                <a href="projects.html" class="btn btn-outline reveal">View All Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SCENE 8: CLIENT TESTIMONIALS ================= -->
+    <section class="testimonials" style="background:var(--dark-surface);">
+        <div class="container scene-wrapper">
+            <div class="section-header reveal">
+                <span class="text-primary" style="font-weight: 700; letter-spacing: 2px;">TESTIMONIALS</span>
+                <h2 class="section-title">What They <span class="text-gradient">Say</span></h2>
+            </div>
+            
+            <div class="testimonial-slider reveal">
+                <div class="testimonial-track-container">
+                    <div class="testimonial-track">
+                        <div class="testimonial-slide">
+                            <div class="glass-card">
+                                <i class="fa-solid fa-quote-left quote-icon"></i>
+                                <p class="testimonial-text">"Xova completely transformed our narrative. They built not just a highly performant app, but an intelligent layer over our data that has tripled our engagement."</p>
+                                <div class="testimonial-author">
+                                    <div class="author-avatar" style="background-image: url('https://randus.org/photos/users/1.jpg');"></div>
+                                    <div class="author-info">
+                                        <h4>Sarah Jenkins</h4>
+                                        <span>CTO, TechFlow</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-slide">
+                            <div class="glass-card">
+                                <i class="fa-solid fa-quote-left quote-icon"></i>
+                                <p class="testimonial-text">"The aesthetic precision and backend architecture delivered by Xova were beyond our expectations. They understand digital strategy inherently."</p>
+                                <div class="testimonial-author">
+                                    <div class="author-avatar" style="background-image: url('https://randus.org/photos/users/2.jpg');"></div>
+                                    <div class="author-info">
+                                        <h4>Michael Chang</h4>
+                                        <span>Founder, DataSync</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-controls">
+                    <button class="slider-btn prev"><i class="fa-solid fa-chevron-left"></i></button>
+                    <div class="slider-dots">
+                        <span class="slider-dot active"></span>
+                        <span class="slider-dot"></span>
+                    </div>
+                    <button class="slider-btn next"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SCENE 9: THE FUTURE ================= -->
+    <section id="vision" class="trust-stats pb-0 text-center">
+        <div class="bg-grid"></div>
+        <div class="container scene-wrapper">
+            <div class="section-header reveal">
+                <span style="color:var(--secondary); font-weight: 700; letter-spacing: 2px;">THE FUTURE</span>
+                <h2 class="section-title">Envisioning <span class="text-gradient">Tomorrow</span></h2>
+                <p class="section-subtitle">We believe the next decade of technology will be defined by seamless, intelligent interfaces merging perfectly with raw AI horsepower. We are here to pave the way.</p>
+            </div>
+            
+            <div class="hero-bg-shapes" style="position: relative; height: 150px; overflow: hidden; margin-top:2rem;">
+                 <div class="shape shape-3" style="top:-50%; left:50%; width:800px; height:200px; transform: translateX(-50%); opacity:0.2"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= FINAL CALL TO ACTION ================= -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-box reveal">
+                <div class="cta-content">
+                    <h2>Let's Build Something <span class="text-gradient">Great Together</span></h2>
+                    <p>The next chapter of technology begins here.</p>
+                    <div class="cta-buttons">
+                        <a href="contact.html" class="btn btn-primary">Start Your Project</a>
+                        <a href="contact.html" class="btn btn-outline">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid reveal">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <i class="fa-solid fa-bolt logo-accent"></i> XOVA
+                    </a>
+                    <p>A premium digital agency creating exceptional web experiences and AI-powered products for forward-thinking brands.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fa-brands fa-github"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="projects.html">Our Work</a></li>
+                        <li><a href="contact.html">Careers</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Web Development</a></li>
+                        <li><a href="services.html">Mobile Apps</a></li>
+                        <li><a href="services.html">AI Chatbots</a></li>
+                        <li><a href="services.html">RAG Systems</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Xova Digital Solutions. All rights reserved.</p>
+                <p>Designed with precision.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>

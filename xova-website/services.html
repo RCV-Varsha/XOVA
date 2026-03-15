@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | Xova Digital Solutions</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        .page-header {
+            padding: 12rem 0 6rem;
+            text-align: center;
+            background: radial-gradient(circle at top center, rgba(99, 102, 241, 0.2), transparent 70%);
+        }
+        
+        .service-detail-section {
+            padding: 6rem 0;
+        }
+
+        .service-detail-section:nth-child(even) {
+            background: rgba(15, 23, 42, 0.5);
+            border-top: 1px solid var(--glass-border);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .service-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .service-row.reverse .service-content {
+            order: 2;
+        }
+        .service-row.reverse .service-visual {
+            order: 1;
+        }
+
+        @media(max-width: 900px) {
+            .service-row { grid-template-columns: 1fr; }
+            .service-row.reverse .service-content { order: 1; }
+            .service-row.reverse .service-visual { order: 2; }
+        }
+
+        .service-icon-large {
+            width: 80px;
+            height: 80px;
+            background: var(--brand-gradient);
+            border-radius: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px var(--primary-glow);
+        }
+
+        .service-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .service-content p {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+        
+        .service-check-list {
+            margin-bottom: 2rem;
+        }
+        .service-check-list li {
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .service-check-list li i {
+            color: var(--accent);
+            background: rgba(34, 197, 94, 0.1);
+            padding: 0.5rem;
+            border-radius: 50%;
+        }
+
+        /* Animated Progress Bars */
+        .progress-bars {
+            margin-top: 2rem;
+        }
+        .progress-item {
+            margin-bottom: 1.5rem;
+        }
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        .progress-bar-bg {
+            width: 100%;
+            height: 8px;
+            background: var(--dark-surface);
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid var(--glass-border);
+        }
+        .progress-bar-fill {
+            height: 100%;
+            background: var(--brand-gradient);
+            border-radius: 4px;
+            width: 0;
+            transition: width 1.5s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .service-visual .glass-card {
+            aspect-ratio: 4/3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .visual-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(15,23,42,0.8), rgba(99,102,241,0.2));
+            border-radius: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ================= NAVIGATION BAR ================= -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-bolt logo-accent"></i> XOVA
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="services.html" class="active">Services</a>
+                <a href="projects.html">Projects</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ================= PAGE HEADER ================= -->
+    <header class="page-header">
+        <div class="container">
+            <h1 class="reveal"><span class="text-gradient">Our Services</span></h1>
+            <p class="section-subtitle reveal" style="transition-delay: 0.1s;">Comprehensive digital solutions spanning web, mobile, and intelligent AI systems.</p>
+        </div>
+    </header>
+
+    <!-- ================= SERVICES DETAILS ================= -->
+
+    <!-- Service 1: Web Dev -->
+    <section class="service-detail-section">
+        <div class="container">
+            <div class="service-row">
+                <div class="service-content reveal-left">
+                    <div class="service-icon-large"><i class="fa-solid fa-code"></i></div>
+                    <h2>Custom Website <span class="text-gradient">Development</span></h2>
+                    <p>We build extremely fast, accessible, and stunning websites using pure web technologies. Our code is clean, production-ready, and optimized for search engines.</p>
+                    
+                    <ul class="service-check-list">
+                        <li><i class="fa-solid fa-check"></i> Pixel-perfect responsive design</li>
+                        <li><i class="fa-solid fa-check"></i> Advanced CSS animations</li>
+                        <li><i class="fa-solid fa-check"></i> Maximum performance scores</li>
+                    </ul>
+
+                    <div class="progress-bars reveal">
+                        <div class="progress-item">
+                            <div class="progress-header"><span>Performance</span><span>100%</span></div>
+                            <div class="progress-bar-bg"><div class="progress-bar-fill" data-width="100%"></div></div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header"><span>Accessibility</span><span>98%</span></div>
+                            <div class="progress-bar-bg"><div class="progress-bar-fill" data-width="98%"></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-visual reveal-right">
+                    <div class="glass-card" style="background-image: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                        <div class="visual-overlay"></div>
+                        <i class="fa-brands fa-html5" style="font-size: 5rem; color: #E34F26; position: relative; z-index: 2;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service 2: Mobile App -->
+    <section class="service-detail-section">
+        <div class="container">
+            <div class="service-row reverse">
+                <div class="service-content reveal-right">
+                    <div class="service-icon-large"><i class="fa-solid fa-mobile-screen"></i></div>
+                    <h2>Mobile App <span class="text-gradient">Development</span></h2>
+                    <p>Extend your reach with powerful mobile applications available on iOS and Android. We focus on seamless user experiences and native-like performance.</p>
+                    
+                    <ul class="service-check-list">
+                        <li><i class="fa-solid fa-check"></i> Cross-platform compatibility</li>
+                        <li><i class="fa-solid fa-check"></i> Intuitive user interfaces</li>
+                        <li><i class="fa-solid fa-check"></i> Secure backend integration</li>
+                    </ul>
+
+                    <div class="progress-bars reveal">
+                        <div class="progress-item">
+                            <div class="progress-header"><span>User Retention</span><span>92%</span></div>
+                            <div class="progress-bar-bg"><div class="progress-bar-fill" data-width="92%"></div></div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header"><span>Code Reusability</span><span>85%</span></div>
+                            <div class="progress-bar-bg"><div class="progress-bar-fill" data-width="85%"></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-visual reveal-left">
+                    <div class="glass-card" style="background-image: url('https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                        <div class="visual-overlay"></div>
+                        <i class="fa-brands fa-apple" style="font-size: 5rem; color: white; position: relative; z-index: 2; margin-right: 1rem;"></i>
+                        <i class="fa-brands fa-android" style="font-size: 5rem; color: var(--accent); position: relative; z-index: 2;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service 3: AI Chatbots -->
+    <section class="service-detail-section">
+        <div class="container">
+            <div class="service-row">
+                <div class="service-content reveal-left">
+                    <div class="service-icon-large"><i class="fa-solid fa-robot"></i></div>
+                    <h2>AI Chatbot <span class="text-gradient">Development</span></h2>
+                    <p>Automate your customer service with context-aware, highly intelligent AI agents that understand natural language and resolve queries instantly.</p>
+                    
+                    <ul class="service-check-list">
+                        <li><i class="fa-solid fa-check"></i> 24/7 automated support</li>
+                        <li><i class="fa-solid fa-check"></i> Multi-language capabilities</li>
+                        <li><i class="fa-solid fa-check"></i> Human-handoff logic</li>
+                    </ul>
+
+                    <div class="progress-bars reveal">
+                        <div class="progress-item">
+                            <div class="progress-header"><span>Response Time Target</span><span>< 1s</span></div>
+                            <div class="progress-bar-bg"><div class="progress-bar-fill" data-width="99%"></div></div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header"><span>Resolution Rate</span><span>88%</span></div>
+                            <div class="progress-bar-bg"><div class="progress-bar-fill" data-width="88%"></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-visual reveal-right">
+                    <div class="glass-card" style="background-image: url('https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                        <div class="visual-overlay"></div>
+                        <div class="ai-core" style="position: relative; top: 0; left: 0; transform: none; box-shadow: 0 0 50px var(--primary-glow); z-index: 2;">
+                            <i class="fa-solid fa-message"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service 4: RAG Systems -->
+    <section class="service-detail-section">
+        <div class="container">
+            <div class="service-row reverse">
+                <div class="service-content reveal-right">
+                    <div class="service-icon-large"><i class="fa-solid fa-brain"></i></div>
+                    <h2>RAG Systems <span class="text-gradient">Development</span></h2>
+                    <p>Retrieval-Augmented Generation connects Large Language Models to your private knowledge bases. It completely eliminates hallucinations and grounds AI answers in your truth.</p>
+                    
+                    <ul class="service-check-list">
+                        <li><i class="fa-solid fa-check"></i> Vector Database Integration</li>
+                        <li><i class="fa-solid fa-check"></i> Contextual Data Retrieval</li>
+                        <li><i class="fa-solid fa-check"></i> Zero Hallucination Guarantee</li>
+                    </ul>
+
+                    <div class="progress-bars reveal">
+                        <div class="progress-item">
+                            <div class="progress-header"><span>Data Security</span><span>100%</span></div>
+                            <div class="progress-bar-bg"><div class="progress-bar-fill" data-width="100%"></div></div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header"><span>Search Accuracy</span><span>95%</span></div>
+                            <div class="progress-bar-bg"><div class="progress-bar-fill" data-width="95%"></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-visual reveal-left">
+                    <div class="glass-card" style="background-image: url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                        <div class="visual-overlay"></div>
+                        <i class="fa-solid fa-network-wired" style="font-size: 5rem; color: #E2E8F0; position: relative; z-index: 2;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service 5: Rec Systems -->
+    <section class="service-detail-section">
+        <div class="container">
+            <div class="service-row">
+                <div class="service-content reveal-left">
+                    <div class="service-icon-large"><i class="fa-solid fa-chart-line"></i></div>
+                    <h2>Recommendation <span class="text-gradient">Systems</span></h2>
+                    <p>We build machine learning algorithms that analyze user behavior to offer highly personalized product, content, and service recommendations.</p>
+                    
+                    <ul class="service-check-list">
+                        <li><i class="fa-solid fa-check"></i> Collaborative Filtering</li>
+                        <li><i class="fa-solid fa-check"></i> Real-time preference updating</li>
+                        <li><i class="fa-solid fa-check"></i> Increased average order value</li>
+                    </ul>
+
+                    <div class="progress-bars reveal">
+                        <div class="progress-item">
+                            <div class="progress-header"><span>Sales Conversion Increase</span><span>40%</span></div>
+                            <div class="progress-bar-bg"><div class="progress-bar-fill" data-width="40%"></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-visual reveal-right">
+                    <div class="glass-card" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                        <div class="visual-overlay"></div>
+                        <i class="fa-solid fa-chart-pie" style="font-size: 5rem; color: var(--accent); position: relative; z-index: 2;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service 6: AI Products -->
+    <section class="service-detail-section" style="border-bottom:none;">
+        <div class="container">
+            <div class="service-row reverse">
+                <div class="service-content reveal-right">
+                    <div class="service-icon-large"><i class="fa-solid fa-microchip"></i></div>
+                    <h2>AI Product <span class="text-gradient">Development</span></h2>
+                    <p>Have an idea for a disruptive AI product? We act as your technical co-founder. From model training to scalable deployment, we build end-to-end AI applications.</p>
+                    
+                    <ul class="service-check-list">
+                        <li><i class="fa-solid fa-check"></i> Custom Fine-tuned Models</li>
+                        <li><i class="fa-solid fa-check"></i> Scalable Cloud Infrastructure</li>
+                        <li><i class="fa-solid fa-check"></i> Go-to-market Technical Support</li>
+                    </ul>
+
+                    <div class="progress-bars reveal">
+                        <div class="progress-item">
+                            <div class="progress-header"><span>Innovation Score</span><span>99%</span></div>
+                            <div class="progress-bar-bg"><div class="progress-bar-fill" data-width="99%"></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-visual reveal-left">
+                    <div class="glass-card" style="background-image: url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                        <div class="visual-overlay"></div>
+                        <i class="fa-solid fa-fingerprint" style="font-size: 5rem; color: #38BDF8; position: relative; z-index: 2;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= CALL TO ACTION ================= -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-box reveal">
+                <div class="cta-content">
+                    <h2>Ready to Leverage <span class="text-gradient">These Services?</span></h2>
+                    <p>Partner with Xova to create innovative digital solutions that drive results.</p>
+                    <div class="cta-buttons">
+                        <a href="contact.html" class="btn btn-primary">Start Your Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid reveal">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <i class="fa-solid fa-bolt logo-accent"></i> XOVA
+                    </a>
+                    <p>A premium digital agency creating exceptional web experiences and AI-powered products for forward-thinking brands.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="projects.html">Our Work</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Web Development</a></li>
+                        <li><a href="services.html">AI Chatbots</a></li>
+                        <li><a href="services.html">RAG Systems</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Xova Digital Solutions.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script>
+        // Animate progress bars specifically on this page when they scroll into view
+        document.addEventListener('DOMContentLoaded', () => {
+            const progressObserver = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if(entry.isIntersecting) {
+                        const fills = entry.target.querySelectorAll('.progress-bar-fill');
+                        fills.forEach(fill => {
+                            const width = fill.getAttribute('data-width');
+                            fill.style.width = width;
+                        });
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            const progressSections = document.querySelectorAll('.progress-bars');
+            progressSections.forEach(section => progressObserver.observe(section));
+        });
+    </script>
+</body>
+</html>
