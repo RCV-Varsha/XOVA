@@ -24,7 +24,8 @@
     <nav class="navbar">
         <div class="container">
             <a href="index.html" class="logo">
-                <i class="fa-solid fa-bolt logo-accent"></i> XOVA
+                <img src="assets/images/xova-logo.png" alt="Xova Logo" class="logo-img">
+                <span class="brand-name">XOVA</span>
             </a>
 
             <div class="nav-links">
@@ -33,6 +34,9 @@
                 <a href="projects.html">Projects</a>
                 <a href="about.html">About</a>
                 <a href="contact.html">Contact</a>
+                <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
             </div>
 
             <button class="mobile-menu-btn">
@@ -51,12 +55,12 @@
             <div class="shape shape-3"></div>
         </div>
         <div class="container hero-content">
-            <div class="hero-badge">Xova Digital Solutions</div>
-            <h1 class="reveal">Build Powerful <span class="text-gradient">Websites</span> & <span
+
+            <h1 class="reveal" style="transition-delay: 0.2s;">Build Powerful <span class="text-gradient">Websites</span> & <span
                     class="text-gradient">AI Products</span></h1>
-            <p class="reveal" style="transition-delay: 0.1s;">We design modern digital platforms and intelligent systems
+            <p class="reveal" style="transition-delay: 0.3s;">We design modern digital platforms and intelligent systems
                 that help businesses grow.</p>
-            <div class="hero-cta reveal" style="transition-delay: 0.2s;">
+            <div class="hero-cta reveal" style="transition-delay: 0.4s;">
                 <a href="#problem" class="btn btn-primary">Start The Journey</a>
             </div>
         </div>
@@ -85,6 +89,7 @@
 
     <!-- ================= SCENE 2: THE OPPORTUNITY ================= -->
     <section id="opportunity" style="background:var(--dark-surface);">
+        <div class="neural-network-bg"></div>
         <div class="container scene-wrapper text-center">
             <div class="section-header reveal">
                 <span class="text-primary" style="font-weight: 700; letter-spacing: 2px;">THE OPPORTUNITY</span>
@@ -99,7 +104,9 @@
     </section>
 
     <!-- ================= SCENE 3: INTRODUCING XOVA ================= -->
-    <section id="introducing" class="trust-stats">
+    <div class="xova-section-divider"></div>
+    <section id="introducing" style="background:var(--dark);">
+        <div class="bg-grid"></div>
         <div class="container scene-wrapper">
             <div class="section-header reveal">
                 <span class="text-secondary"
@@ -124,7 +131,9 @@
     </section>
 
     <!-- ================= SCENE 4: WHAT WE BUILD ================= -->
-    <section id="services">
+    <div class="xova-section-divider"></div>
+    <section id="services" style="background:var(--dark-surface);">
+        <div class="neural-network-bg" opacity="0.1"></div>
         <div class="container scene-wrapper">
             <div class="section-header reveal">
                 <span class="text-accent" style="font-weight: 700; letter-spacing: 2px;">WHAT WE BUILD</span>
@@ -296,7 +305,9 @@
     </section>
 
     <!-- ================= SCENE 7: PROJECT SHOWCASE ================= -->
-    <section class="projects">
+    <div class="xova-section-divider"></div>
+    <section id="projects" style="background:var(--dark-surface);">
+        <div class="bg-grid broken-grid"></div>
         <div class="container scene-wrapper">
             <div class="section-header reveal">
                 <span class="text-accent" style="font-weight: 700; letter-spacing: 2px;">SUCCESS STORIES</span>
@@ -366,7 +377,7 @@
                                     tripled our engagement."</p>
                                 <div class="testimonial-author">
                                     <div class="author-avatar"
-                                        style="background-image: url('https://randus.org/photos/users/1.jpg');"></div>
+                                        style="background-image: url('https://randus.org/photos/users/1.jpg');" loading="lazy"></div>
                                     <div class="author-info">
                                         <h4>Sarah Jenkins</h4>
                                         <span>CTO, TechFlow</span>
@@ -382,7 +393,7 @@
                                 </p>
                                 <div class="testimonial-author">
                                     <div class="author-avatar"
-                                        style="background-image: url('https://randus.org/photos/users/2.jpg');"></div>
+                                        style="background-image: url('https://randus.org/photos/users/2.jpg');" loading="lazy"></div>
                                     <div class="author-info">
                                         <h4>Michael Chang</h4>
                                         <span>Founder, DataSync</span>
@@ -445,7 +456,7 @@
             <div class="footer-grid reveal">
                 <div class="footer-brand">
                     <a href="index.html" class="logo">
-                        <i class="fa-solid fa-bolt logo-accent"></i> XOVA
+                        <img src="assets/images/xova-logo.png" alt="Xova Digital Solutions Logo" class="logo-img">
                     </a>
                     <p>A premium digital agency creating exceptional web experiences and AI-powered products for
                         forward-thinking brands.</p>

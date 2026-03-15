@@ -1,5 +1,39 @@
 document.addEventListener('DOMContentLoaded', () => {
     
+    // --- Theme Management ---
+    const themeToggle = document.getElementById('themeToggle');
+    const root = document.documentElement;
+    
+    // Check for saved theme or system preference
+    const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+    
+    const setTheme = (theme) => {
+        root.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+        updateToggleIcon(theme);
+    };
+
+    const updateToggleIcon = (theme) => {
+        if (!themeToggle) return;
+        const icon = themeToggle.querySelector('i');
+        if (theme === 'light') {
+            icon.classList.replace('fa-moon', 'fa-sun');
+        } else {
+            icon.classList.replace('fa-sun', 'fa-moon');
+        }
+    };
+
+    // Initialize
+    setTheme(savedTheme);
+
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = root.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            setTheme(newTheme);
+        });
+    }
+    
     // --- 0. Hero Particles Generation ---
     const particlesContainer = document.getElementById('heroParticles');
     if (particlesContainer) {

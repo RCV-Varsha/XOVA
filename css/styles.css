@@ -5,29 +5,42 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap');
 
 :root {
-  /* Narrative Color Palette (Teal & Coral) */
-  --primary: #14B8A6;
-  --secondary: #FB7185;
-  --primary-glow: rgba(20, 184, 166, 0.4);
-  --dark: #0B0F14;
-  --dark-surface: #121821;
-  --light: #F8FAFC;
-  --accent: #22D3EE;
+  /* Neural-Tech Brand Colors (Constant) */
+  --primary: #2E7BFF;
+  --secondary: #00E5FF;
+  --highlight: #3DF5C0;
+  --gradient-accent: #8A6BFF;
+  --primary-glow: rgba(46, 123, 255, 0.4);
+  --glow-soft: rgba(0, 229, 255, 0.4);
+  
+  /* Theme-specific Colors (Dark - Default) */
+  --bg-main: #05031A;
+  --bg-section: #0B0F1F;
+  --bg-card: #12192B;
+  --text-main: #F8FAFC;
   --text-muted: #94A3B8;
-  --text-light: #F8FAFC;
-  --glow-soft: rgba(251, 113, 133, 0.4);
+  
+  /* Legacy/Support Variables */
+  --dark: var(--bg-main);
+  --dark-surface: var(--bg-section);
+  --light: var(--text-main);
   
   /* Glassmorphism */
-  --glass-bg: rgba(18, 24, 33, 0.6);
-  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-bg: rgba(18, 25, 43, 0.6);
+  --glass-border: rgba(46, 123, 255, 0.15);
   --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.7);
 
+  /* Navbar Themes */
+  --nav-bg: rgba(11, 15, 31, 0.85);
+  --nav-border: var(--glass-border);
+  --nav-text: var(--text-main);
+
   /* Gradients */
-  --bg-gradient: radial-gradient(circle at top, rgba(20, 184, 166, 0.15), var(--dark) 70%);
-  --text-gradient: linear-gradient(135deg, #F8FAFC 0%, #94A3B8 100%);
-  --brand-gradient: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-  --chroma-gradient: linear-gradient(135deg, #14B8A6, #FB7185, #22D3EE);
-  --secondary-gradient: linear-gradient(135deg, #FB7185, #22D3EE);
+  --bg-gradient: radial-gradient(circle at top, rgba(46, 123, 255, 0.15), var(--bg-main) 70%);
+  --text-gradient: linear-gradient(135deg, var(--text-main) 0%, var(--text-muted) 100%);
+  --brand-gradient: linear-gradient(135deg, #2E7BFF 0%, #00E5FF 100%);
+  --chroma-gradient: linear-gradient(135deg, #2E7BFF, #00E5FF, #8A6BFF);
+  --secondary-gradient: linear-gradient(135deg, #00E5FF, #8A6BFF);
   
   /* Typography */
   --font-sans: 'Inter', sans-serif;
@@ -38,9 +51,30 @@
   --header-height: 80px;
 
   /* Transitions */
+  --transition-theme: 300ms ease-in-out;
   --transition-fast: 200ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-normal: 300ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Light Theme Overrides */
+[data-theme="light"] {
+  --bg-main: #FFFFFF;
+  --bg-section: #F4F7FB;
+  --bg-card: #FFFFFF;
+  --text-main: #0F172A;
+  --text-muted: #64748B;
+  
+  --glass-bg: rgba(244, 247, 251, 0.7);
+  --glass-border: rgba(46, 123, 255, 0.1);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+  
+  --bg-gradient: radial-gradient(circle at top, rgba(46, 123, 255, 0.05), #FFFFFF 70%);
+
+  /* Light Navbar */
+  --nav-bg: #FFFFFF;
+  --nav-border: #E2E8F0;
+  --nav-text: #0F172A;
 }
 
 /* =========================================
@@ -59,12 +93,13 @@ html {
 
 body {
   font-family: var(--font-sans);
-  background-color: var(--dark);
-  color: var(--light);
+  background-color: var(--bg-main);
+  color: var(--text-main);
   line-height: 1.6;
   overflow-x: hidden;
   background-image: var(--bg-gradient);
   background-attachment: fixed;
+  transition: background-color var(--transition-theme), color var(--transition-theme);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -108,19 +143,30 @@ section {
 .bg-grid {
   position: absolute;
   inset: 0;
-  background-size: 40px 40px;
+  background-size: 50px 50px;
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    radial-gradient(circle, rgba(46, 123, 255, 0.1) 1px, transparent 1px);
   z-index: 0;
   pointer-events: none;
 }
 
 .broken-grid {
-  mask-image: linear-gradient(to bottom, black 20%, transparent 80%);
-  -webkit-mask-image: linear-gradient(to bottom, black 20%, transparent 80%);
-  animation: bgScroll 100s linear infinite reverse;
-  will-change: transform, background-position;
+  mask-image: radial-gradient(circle, black 30%, transparent 90%);
+  -webkit-mask-image: radial-gradient(circle, black 30%, transparent 90%);
+  animation: gridFloat 20s linear infinite alternate;
+}
+
+@keyframes gridFloat {
+  0% { transform: translateY(0); opacity: 0.3; }
+  100% { transform: translateY(-20px); opacity: 0.5; }
+}
+
+.neural-network-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('data:image/svg+xml,<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="1" fill="rgba(46, 123, 255, 0.2)"/><circle cx="190" cy="190" r="1" fill="rgba(0, 229, 255, 0.2)"/><path d="M10 10 L190 190" stroke="rgba(46, 123, 255, 0.05)" stroke-width="0.5" fill="none"/></svg>');
+  opacity: 0.2;
+  z-index: 0;
 }
 
 /* =========================================
@@ -144,12 +190,8 @@ section {
 }
 
 .section-title {
-  font-size: 2.5rem;
+  font-size: clamp(2rem, 5vw, 3.5rem);
   margin-bottom: 1rem;
-}
-
-@media (min-width: 768px) {
-  .section-title { font-size: 3.5rem; }
 }
 
 .section-subtitle {
@@ -176,21 +218,28 @@ section {
   /* Support magnetic pull variables via JS */
   --mag-x: 0px;
   --mag-y: 0px;
-  transform: translate(var(--mag-x), var(--mag-y));
-  transition: border-color var(--transition-normal); /* remove transform from transition so JS takes over instantly */
+  --scale: 1;
+  transform: translate(var(--mag-x), var(--mag-y)) scale(var(--scale));
+  transition: border-color var(--transition-normal), transform var(--transition-fast);
+}
+
+.btn:hover {
+  --scale: 1.05;
 }
 
 .btn-primary {
   background: var(--brand-gradient);
   background-size: 200% auto;
   color: white;
-  box-shadow: 0 4px 14px var(--primary-glow);
-  transition: box-shadow 0.3s ease, background-position 0.3s ease, border-color var(--transition-normal);
+  box-shadow: 0 0 20px var(--primary-glow);
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  border: none;
 }
 
 .btn-primary:hover {
-  box-shadow: 0 6px 20px var(--glow-soft);
+  box-shadow: 0 0 40px var(--glow-soft), 0 0 10px var(--primary);
   background-position: right center;
+  transform: translate(var(--mag-x), var(--mag-y)) scale(1.05);
 }
 
 .btn-outline {
@@ -208,21 +257,16 @@ section {
    GLASSMORPHISM COMPONENTS
    ========================================= */
 .glass-card {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--glass-border);
-  border-radius: 1.5rem;
-  padding: 2rem;
-  transition: box-shadow var(--transition-normal), border-color var(--transition-normal);
+  border-radius: 2rem;
+  padding: 2.5rem;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
   box-shadow: var(--glass-shadow);
   position: relative;
   overflow: hidden;
-  
-  /* 3D tilt variables via JS */
-  --rot-x: 0deg;
-  --rot-y: 0deg;
-  transform-style: preserve-3d;
   transform: perspective(1000px) rotateX(var(--rot-x)) rotateY(var(--rot-y));
 }
 
@@ -287,17 +331,18 @@ section {
   height: 60px;
   z-index: 1000;
   transition: var(--transition-normal);
-  background: var(--glass-bg);
+  background: var(--nav-bg);
   backdrop-filter: blur(12px);
   border-radius: 50px;
-  border: 1px solid var(--glass-border);
+  border: 1px solid var(--nav-border);
   box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  color: var(--nav-text);
 }
 
 .navbar.scrolled {
-  background: rgba(18, 24, 33, 0.85);
+  background: var(--nav-bg);
   box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-  border-color: rgba(20, 184, 166, 0.2);
+  border-bottom: 1px solid var(--nav-border);
 }
 
 .navbar .container {
@@ -316,7 +361,27 @@ section {
   letter-spacing: -0.5px;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.75rem;
+  color: var(--nav-text);
+}
+
+.brand-name {
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--nav-text);
+}
+
+.logo-img {
+  height: 42px;
+  width: auto;
+  transition: height var(--transition-normal);
+}
+
+@media (max-width: 480px) {
+  .logo-img {
+    height: 34px;
+  }
 }
 
 .logo-accent {
@@ -333,17 +398,22 @@ section {
 .nav-links a {
   font-size: 0.9rem;
   font-weight: 500;
-  color: var(--text-muted);
+  color: var(--nav-text);
   position: relative;
   padding: 0.5rem 1rem;
   border-radius: 999px;
   transition: all var(--transition-fast);
+  opacity: 0.8;
+}
+
+[data-theme="light"] .nav-links a {
+  color: #0F172A;
 }
 
 .nav-links a:hover {
-  color: var(--light);
-  background: rgba(20, 184, 166, 0.1);
-  box-shadow: 0 0 15px rgba(20, 184, 166, 0.15);
+  color: var(--primary);
+  background: rgba(46, 123, 255, 0.1);
+  opacity: 1;
 }
 
 .nav-links a.active {
@@ -530,12 +600,36 @@ section {
   height: 100%;
   display: flex;
   flex-direction: column;
+  background: var(--dark-surface);
+  border: 1px solid var(--glass-border);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--brand-gradient);
+  opacity: 0.8;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(0, 229, 255, 0.4);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(46, 123, 255, 0.15);
 }
 
 .service-icon {
   width: 60px;
   height: 60px;
-  background: rgba(99, 102, 241, 0.1);
+  background: rgba(46, 123, 255, 0.1);
   border-radius: 1rem;
   display: flex;
   align-items: center;
@@ -598,12 +692,19 @@ section {
   width: 100%;
   height: 100%;
   background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 40px 40px;
+    linear-gradient(rgba(46, 123, 255, 0.05) 1.5px, transparent 1.5px),
+    linear-gradient(90deg, rgba(46, 123, 255, 0.05) 1.5px, transparent 1.5px);
+  background-size: 60px 60px;
   z-index: 0;
   pointer-events: none;
-  contain: strict;
+  opacity: 0.4;
+  animation: gridFloat 30s linear infinite alternate;
+}
+
+.xova-section-divider {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(90deg, transparent, var(--glass-border), transparent);
 }
 
 .chroma-waves {
@@ -1307,10 +1408,14 @@ section {
 @media (max-width: 1024px) {
   .solutions-grid { gap: 2rem; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
-  .timeline { flex-direction: column; align-items: center; gap: 2rem; margin-top: 2rem; }
-  .timeline::before, .timeline-progress { display: none; }
-  .timeline-step { width: 100%; max-width: 300px; display: flex; align-items: center; text-align: left; gap: 1rem; }
-  .step-number { margin: 0; flex-shrink: 0; width: 60px; height: 60px; font-size: 1.25rem; }
+}
+
+@media (max-width: 768px) {
+  .timeline-container { flex-direction: column; align-items: flex-start; }
+  .timeline-line { left: 40px; }
+  .timeline-step { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .step-dot { margin-left: 31px; }
+  .step-content { width: 100%; flex-direction: column; text-align: left; }
 }
 
 /* =========================================
@@ -1396,7 +1501,7 @@ section {
     left: 0;
     width: 100%;
     height: auto;
-    background: rgba(17, 17, 25, 0.95);
+    background: var(--glass-bg);
     backdrop-filter: blur(20px);
     border-radius: 1.5rem;
     border: 1px solid var(--glass-border);
@@ -1442,4 +1547,82 @@ section {
   
   .cta h2 { font-size: 2rem; }
   .cta-buttons { flex-direction: column; }
+  
+  /* Disable heavy background animations on mobile */
+  .hero-bg-shapes .shape-1, .hero-bg-shapes .shape-2, .hero-bg-shapes .shape-3 {
+    animation: none;
+    opacity: 0.1;
+  }
+  .chroma-waves {
+    animation: none;
+    display: none;
+  }
 }
+
+@media (max-width: 480px) {
+  /* Contact Form Vertical Stack */
+  .form-group {
+    flex-direction: column;
+  }
+  input, textarea, select {
+    width: 100%;
+  }
+  /* Smaller padding on mobile */
+  section { padding: 4rem 0; }
+}
+
+/* =========================================
+   LOGO SVG DEFAULTS & LOGO ANIMATIONS
+   ========================================= */
+.xova-logo {
+  overflow: visible;
+}
+
+.xova-logo .node {
+  fill: #fff;
+  transition: all 0.3s ease;
+  animation: neuralPulse 3s infinite alternate;
+}
+
+.xova-logo .connection {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: drawNetwork 4s forwards;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes neuralPulse {
+  0% { filter: drop-shadow(0 0 2px var(--primary)); opacity: 0.8; }
+  50% { filter: drop-shadow(0 0 10px var(--secondary)); opacity: 1; }
+  100% { filter: drop-shadow(0 0 2px var(--primary)); opacity: 0.8; }
+}
+
+@keyframes drawNetwork {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes logoGradientFlow {
+  0% { stop-color: #2E7BFF; }
+  50% { stop-color: #00E5FF; }
+  100% { stop-color: #8A6BFF; }
+}
+
+.logo-hero {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 2rem;
+  display: block;
+}
+
+.logo-nav {
+  width: 28px;
+  height: 28px;
+}
+
+.logo-footer {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 1rem;
+}
+

@@ -195,7 +195,8 @@
     <nav class="navbar">
         <div class="container">
             <a href="index.html" class="logo">
-                <i class="fa-solid fa-bolt logo-accent"></i> XOVA
+                <img src="assets/images/xova-logo.png" alt="Xova Logo" class="logo-img">
+                <span class="brand-name">XOVA</span>
             </a>
             <div class="nav-links">
                 <a href="index.html">Home</a>
@@ -203,6 +204,9 @@
                 <a href="projects.html">Projects</a>
                 <a href="about.html">About</a>
                 <a href="contact.html" class="active">Contact</a>
+                <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
             </div>
             <button class="mobile-menu-btn">
                 <i class="fa-solid fa-bars"></i>
@@ -212,6 +216,7 @@
 
     <!-- ================= CONTACT SECTION ================= -->
     <section class="contact-section">
+        <div class="bg-grid"></div>
         <div class="container">
             <div class="contact-grid reveal">
                 
@@ -292,9 +297,17 @@
     </section>
 
     <!-- ================= FOOTER ================= -->
-    <footer class="footer" style="padding-top: 2rem; border-top: none;">
+    <footer class="footer">
         <div class="container">
-            <div class="footer-bottom" style="border-top: 1px solid var(--glass-border);">
+            <div class="footer-grid reveal">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <img src="assets/images/xova-logo.png" alt="Xova Digital Solutions Logo" class="logo-img">
+                    </a>
+                    <p>A premium digital agency creating exceptional web experiences and AI-powered products for forward-thinking brands.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
                 <p>&copy; 2026 Xova Digital Solutions. All rights reserved.</p>
                 <p>Designed with precision.</p>
             </div>
