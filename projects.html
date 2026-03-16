@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Xova Digital Solutions</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <style>
+        .page-header {
+            padding: 12rem 0 6rem;
+            text-align: center;
+            background: radial-gradient(circle at top center, rgba(139, 92, 246, 0.15), transparent 70%);
+        }
+
+        /* Filter Controls */
+        .filter-controls {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 4rem;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 1px solid var(--glass-border);
+            color: var(--text-muted);
+            padding: 0.5rem 1.5rem;
+            border-radius: 9999px;
+            cursor: pointer;
+            font-family: var(--font-sans);
+            font-weight: 500;
+            transition: all var(--transition-normal);
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            box-shadow: 0 4px 14px var(--primary-glow);
+        }
+
+        /* Grid Configuration overrides */
+        .projects-grid {
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        }
+
+        .project-card.hide {
+            display: none;
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition-normal);
+            padding: 2rem;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: var(--dark-surface);
+            border: 1px solid var(--glass-border);
+            border-radius: 1.5rem;
+            width: 100%;
+            max-width: 900px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            transform: translateY(50px) scale(0.95);
+            transition: all var(--transition-normal);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: translateY(0) scale(1);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: rgba(15,23,42,0.8);
+            border: 1px solid var(--glass-border);
+            color: var(--light);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: all var(--transition-fast);
+        }
+
+        .modal-close:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .modal-header-img {
+            width: 100%;
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .modal-body {
+            padding: 3rem;
+        }
+
+        .modal-category {
+            color: var(--primary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-title {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            font-family: var(--font-display);
+        }
+
+        .modal-description {
+            color: var(--text-light);
+            font-size: 1.125rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .modal-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            border-top: 1px solid var(--glass-border);
+            padding-top: 2rem;
+        }
+
+        .meta-item h4 {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .meta-item p {
+            color: var(--light);
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ================= NAVIGATION BAR ================= -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <svg class="xova-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#2E7BFF" />
+                            <stop offset="100%" stop-color="#8A6BFF" />
+                        </linearGradient>
+                    </defs>
+                    <path class="x-path" d="M 30 20 L 70 80 M 70 20 L 30 80" stroke="url(#logoGrad)" stroke-width="8" stroke-linecap="round" fill="none" />
+                    <circle class="dot" cx="50" cy="50" r="6" fill="#00E5FF" />
+                    <path d="M 15 50 L 30 50 M 70 50 L 85 50" stroke="url(#logoGrad)" stroke-width="4" stroke-linecap="round" opacity="0.5" />
+                </svg>
+                <span class="brand-name">XOVA</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="projects.html" class="active">Projects</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle Theme">
+                    <svg class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5" fill="currentColor" />
+                        <g class="sun-rays">
+                            <line x1="12" y1="1" x2="12" y2="3" />
+                            <line x1="12" y1="21" x2="12" y2="23" />
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                            <line x1="1" y1="12" x2="3" y2="12" />
+                            <line x1="21" y1="12" x2="23" y2="12" />
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                        </g>
+                    </svg>
+                </button>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ================= PAGE HEADER ================= -->
+    <header class="page-header">
+        <div class="bg-grid"></div>
+        <div class="container">
+            <h1 class="reveal"><span class="text-gradient">Selected Works</span></h1>
+            <p class="section-subtitle reveal" style="transition-delay: 0.1s;">Explore our portfolio of premium digital experiences and AI integrations.</p>
+        </div>
+    </header>
+
+    <!-- ================= PORTFOLIO GRID ================= -->
+    <section class="projects-portfolio">
+        <div class="container">
+            <!-- Filters -->
+            <div class="filter-controls reveal">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="web">Web Development</button>
+                <button class="filter-btn" data-filter="mobile">Mobile Apps</button>
+                <button class="filter-btn" data-filter="ai">AI Solutions</button>
+            </div>
+
+            <!-- Grid -->
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card reveal" data-category="ai" 
+                     data-title="Financial Data Analyzer"
+                     data-client="FinTech Innovate"
+                     data-tech="Python, LangChain, AWS"
+                     data-desc="An intelligent platform that processes massive datasets to provide predictive trading algorithms in real-time.">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Financial Data Analyzer" loading="lazy">
+                    </div>
+                    <div class="project-overlay">
+                        <span class="project-category">AI Integration</span>
+                        <h3 class="project-title">Financial Data Analyzer</h3>
+                        <button class="view-project-btn">View Details <i class="fa-solid fa-expand"></i></button>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card reveal" data-category="web"
+                     data-title="Global E-Commerce Dashboard"
+                     data-client="Retail Nova"
+                     data-tech="HTML, CSS, JS, Stripe"
+                     data-desc="A lightning-fast React architecture unifying tracking metrics across 50+ regional retail partners.">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Global E-Commerce Dashboard" loading="lazy">
+                    </div>
+                    <div class="project-overlay">
+                        <span class="project-category">Web Platform</span>
+                        <h3 class="project-title">Global E-Commerce Dashboard</h3>
+                        <button class="view-project-btn">View Details <i class="fa-solid fa-expand"></i></button>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card reveal" data-category="mobile"
+                     data-title="Real Estate App"
+                     data-client="Prime Estates"
+                     data-tech="React Native, Firebase"
+                     data-desc="A mobile application that revolutionizes property search with AR viewing capabilities and instant agent matching algorithms.">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1512428559087-560fa5ceab42?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Real Estate App" loading="lazy">
+                    </div>
+                    <div class="project-overlay">
+                        <span class="project-category">Mobile App</span>
+                        <h3 class="project-title">Real Estate App</h3>
+                        <button class="view-project-btn">View Details <i class="fa-solid fa-expand"></i></button>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card reveal" data-category="web"
+                     data-title="Restaurant Platform"
+                     data-client="Gourmet Connect"
+                     data-tech="Vue.js, Python, PostgreSQL"
+                     data-desc="A centralized platform for restaurant multi-chain management, handling inventory, reservations, and staff scheduling in one place.">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Restaurant Platform" loading="lazy">
+                    </div>
+                    <div class="project-overlay">
+                        <span class="project-category">Web Development</span>
+                        <h3 class="project-title">Restaurant Platform</h3>
+                        <button class="view-project-btn">View Details <i class="fa-solid fa-expand"></i></button>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card reveal" data-category="ai"
+                     data-title="EduSpark Learning Portal"
+                     data-client="EduSpark"
+                     data-tech="Next.js, OpenAI API, Pinecone"
+                     data-desc="An EdTech platform featuring an integrated RAG AI tutor that can answer student questions strictly based on the provided course material without hallucinating.">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Learning Portal" loading="lazy">
+                    </div>
+                    <div class="project-overlay">
+                        <span class="project-category">AI Solution</span>
+                        <h3 class="project-title">Learning Portal</h3>
+                        <button class="view-project-btn">View Details <i class="fa-solid fa-expand"></i></button>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="project-card reveal" data-category="ai"
+                     data-title="Startup MVP Chatbot"
+                     data-client="FinTech Innovate"
+                     data-tech="Python, LangChain, AWS"
+                     data-desc="A highly complex financial advising chatbot MVP capable of analyzing live market data and user portfolios to provide actionable recommendations.">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Startup MVP" loading="lazy">
+                    </div>
+                    <div class="project-overlay">
+                        <span class="project-category">AI Solution</span>
+                        <h3 class="project-title">Startup MVP</h3>
+                        <button class="view-project-btn">View Details <i class="fa-solid fa-expand"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= CALL TO ACTION ================= -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-box reveal">
+                <div class="cta-content">
+                    <h2>Ready to Start Your <span class="text-gradient">Project?</span></h2>
+                    <p>Let's add your success story to our portfolio.</p>
+                    <div class="cta-buttons">
+                        <a href="contact.html" class="btn btn-primary">Contact Us Today</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid reveal">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <svg class="xova-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="footerLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#2E7BFF" />
+                                    <stop offset="100%" stop-color="#8A6BFF" />
+                                </linearGradient>
+                            </defs>
+                            <path class="x-path" d="M 30 20 L 70 80 M 70 20 L 30 80" stroke="url(#footerLogoGrad)" stroke-width="8" stroke-linecap="round" fill="none" />
+                            <circle class="dot" cx="50" cy="50" r="6" fill="#00E5FF" />
+                        </svg>
+                        <span class="brand-name">XOVA</span>
+                    </a>
+                    <p>A premium digital agency creating exceptional web experiences and AI-powered products for
+                        forward-thinking brands.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fa-brands fa-github"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="projects.html">Our Work</a></li>
+                        <li><a href="contact.html">Careers</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Web Development</a></li>
+                        <li><a href="services.html">Mobile Apps</a></li>
+                        <li><a href="services.html">AI Chatbots</a></li>
+                        <li><a href="services.html">RAG Systems</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Xova Digital Solutions. All rights reserved.</p>
+                <p>Designed with precision.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ================= MODAL ================= -->
+    <div class="modal-overlay" id="projectModal">
+        <div class="modal-content">
+            <button class="modal-close"><i class="fa-solid fa-times"></i></button>
+            <div class="modal-header-img" id="modalImg"></div>
+            <div class="modal-body">
+                <div class="modal-category" id="modalCategory">Category</div>
+                <h2 class="modal-title" id="modalTitle">Project Title</h2>
+                <p class="modal-description" id="modalDesc">Project description goes here...</p>
+                
+                <div class="modal-meta">
+                    <div class="meta-item">
+                        <h4>Client</h4>
+                        <p id="modalClient">Client Name</p>
+                    </div>
+                    <div class="meta-item">
+                        <h4>Technologies</h4>
+                        <p id="modalTech">Tech Stack</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Filtering Logic ---
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const projects = document.querySelectorAll('.project-card');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Update active class
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    const filterValue = btn.getAttribute('data-filter');
+
+                    projects.forEach(project => {
+                        if (filterValue === 'all' || project.getAttribute('data-category') === filterValue) {
+                            project.classList.remove('hide');
+                            // Small animation trick
+                            project.style.animation = 'none';
+                            project.offsetHeight; /* trigger reflow */
+                            project.style.animation = "fadeInDown 0.5s ease both";
+                        } else {
+                            project.classList.add('hide');
+                        }
+                    });
+                });
+            });
+
+            // --- Modal Logic ---
+            const modal = document.getElementById('projectModal');
+            const closeBtn = document.querySelector('.modal-close');
+            
+            // Modal Elements
+            const mImg = document.getElementById('modalImg');
+            const mCat = document.getElementById('modalCategory');
+            const mTitle = document.getElementById('modalTitle');
+            const mDesc = document.getElementById('modalDesc');
+            const mClient = document.getElementById('modalClient');
+            const mTech = document.getElementById('modalTech');
+
+            projects.forEach(card => {
+                const viewBtn = card.querySelector('.view-project-btn');
+                
+                const openModal = () => {
+                    // Extract data
+                    const bgImage = card.querySelector('.project-img').style.backgroundImage;
+                    const catTarget = card.querySelector('.project-category').innerText;
+                    
+                    mImg.style.backgroundImage = bgImage;
+                    mCat.innerText = catTarget;
+                    mTitle.innerText = card.getAttribute('data-title');
+                    mDesc.innerText = card.getAttribute('data-desc');
+                    mClient.innerText = card.getAttribute('data-client');
+                    mTech.innerText = card.getAttribute('data-tech');
+
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden'; // Prevent scrolling
+                };
+
+                card.addEventListener('click', openModal);
+                viewBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    openModal();
+                });
+            });
+
+            const closeModal = () => {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            };
+
+            closeBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', (e) => {
+                if(e.target === modal) {
+                    closeModal();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
