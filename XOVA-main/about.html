@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Xova Digital Solutions</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <style>
+        .page-header {
+            padding: 12rem 0 6rem;
+            text-align: center;
+            background: radial-gradient(circle at top center, rgba(34, 197, 94, 0.15), transparent 70%);
+        }
+
+        /* Story Section */
+        .story-section {
+            padding: 6rem 0;
+            background: rgba(15, 23, 42, 0.3);
+        }
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .story-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .story-content p {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+        .story-image {
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+        .story-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        .story-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Values Section */
+        .values-section {
+            padding: 6rem 0;
+        }
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+        .value-card {
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+        .value-card .icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 0 20px var(--primary-glow);
+        }
+        .value-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .value-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Founder Section */
+        .founder-section {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, rgba(15,23,42,1), rgba(30,41,59,0.8));
+        }
+        .founder-box {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+        .founder-image {
+            flex-shrink: 0;
+            width: clamp(200px, 40vw, 300px);
+            height: clamp(200px, 40vw, 300px);
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary);
+            box-shadow: 0 0 30px var(--primary-glow);
+        }
+        .founder-quote {
+            flex-grow: 1;
+        }
+        .founder-quote i {
+            font-size: 3rem;
+            color: var(--accent);
+            opacity: 0.3;
+            margin-bottom: 1rem;
+        }
+        .founder-quote h3 {
+            font-size: 2rem;
+            font-style: italic;
+            font-weight: 300;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+        .founder-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        .founder-title {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        @media(max-width: 900px) {
+            .story-grid { grid-template-columns: 1fr; }
+            .founder-box { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ================= NAVIGATION BAR ================= -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <svg class="xova-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#2E7BFF" />
+                            <stop offset="100%" stop-color="#8A6BFF" />
+                        </linearGradient>
+                    </defs>
+                    <path class="x-path" d="M 30 20 L 70 80 M 70 20 L 30 80" stroke="url(#logoGrad)" stroke-width="8" stroke-linecap="round" fill="none" />
+                    <circle class="dot" cx="50" cy="50" r="6" fill="#00E5FF" />
+                    <path d="M 15 50 L 30 50 M 70 50 L 85 50" stroke="url(#logoGrad)" stroke-width="4" stroke-linecap="round" opacity="0.5" />
+                </svg>
+                <span class="brand-name">XOVA</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="projects.html">Projects</a>
+                <a href="about.html" class="active">About</a>
+                <a href="contact.html">Contact</a>
+                <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle Theme">
+                    <svg class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5" fill="currentColor" />
+                        <g class="sun-rays">
+                            <line x1="12" y1="1" x2="12" y2="3" />
+                            <line x1="12" y1="21" x2="12" y2="23" />
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                            <line x1="1" y1="12" x2="3" y2="12" />
+                            <line x1="21" y1="12" x2="23" y2="12" />
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                        </g>
+                    </svg>
+                </button>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ================= PAGE HEADER ================= -->
+    <header class="page-header">
+        <div class="bg-grid"></div>
+        <div class="container">
+            <h1 class="reveal"><span class="text-gradient">Who We Are</span></h1>
+            <p class="section-subtitle reveal" style="transition-delay: 0.1s;">Innovators, builders, and visionaries redefining the intersection of web and AI.</p>
+        </div>
+    </header>
+
+    <!-- ================= STORY AND VISION ================= -->
+    <section class="story-section">
+        <div class="container">
+            <div class="story-grid">
+                <div class="story-content reveal-left">
+                    <h2>Our <span class="text-gradient">Story & Vision</span></h2>
+                    <p>Xova Digital Solutions was founded with a singular, ambitious goal: to democratize access to advanced artificial intelligence interfaces through extremely well-crafted web applications.</p>
+                    <p>We realized that while AI models were advancing rapidly, the interfaces businesses used to leverage them were clunky, slow, and outdated. Xova bridges that gap.</p>
+                    <p>Our vision is to become the premier architectural firm for the digital age, constructing AI-native platforms that don't just compute data, but truly understand human intent and aesthetic.</p>
+                </div>
+                <div class="story-image reveal-right">
+                    <div class="vision-visual">
+                        <div class="vision-orb-container">
+                            <svg class="vision-orb-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <radialGradient id="orbGrad" cx="50%" cy="50%" r="50%">
+                                        <stop offset="0%" stop-color="#00E5FF" stop-opacity="0.8" />
+                                        <stop offset="70%" stop-color="#2E7BFF" stop-opacity="0.4" />
+                                        <stop offset="100%" stop-color="#2E7BFF" stop-opacity="0" />
+                                    </radialGradient>
+                                    <linearGradient id="neuralGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#00E5FF" />
+                                        <stop offset="100%" stop-color="#8A6BFF" />
+                                    </linearGradient>
+                                </defs>
+                                <circle cx="100" cy="100" r="70" fill="url(#orbGrad)">
+                                    <animate attributeName="r" values="65;75;65" dur="4s" repeatCount="indefinite" />
+                                </circle>
+                                <path d="M 60 60 Q 100 20 140 60 T 60 60" fill="none" stroke="url(#neuralGrad)" stroke-width="2" opacity="0.4">
+                                    <animateTransform attributeName="transform" type="rotate" from="0 100 100" to="360 100 100" dur="10s" repeatCount="indefinite" />
+                                </path>
+                                <path d="M 60 140 Q 100 180 140 140 T 60 140" fill="none" stroke="url(#neuralGrad)" stroke-width="2" opacity="0.4">
+                                    <animateTransform attributeName="transform" type="rotate" from="360 100 100" to="0 100 100" dur="15s" repeatCount="indefinite" />
+                                </path>
+                                <circle cx="100" cy="100" r="10" fill="white" opacity="0.8">
+                                    <animate attributeName="opacity" values="0.8;0.4;0.8" dur="2s" repeatCount="indefinite" />
+                                </circle>
+                            </svg>
+                            <div class="vision-glow"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= VALUES ================= -->
+    <section class="values-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">Our Core <span class="text-gradient">Values</span></h2>
+                <p class="section-subtitle"> The principles that guide every single line of code we write.</p>
+            </div>
+
+            <div class="values-grid">
+                <!-- Value 1 -->
+                <div class="glass-card value-card reveal">
+                    <div class="icon"><i class="fa-solid fa-rocket"></i></div>
+                    <h3>Innovation</h3>
+                    <p>We absolutely refuse to use yesterday's technology to solve tomorrow's problems. We stay on the bleeding edge.</p>
+                </div>
+                <!-- Value 2 -->
+                <div class="glass-card value-card reveal">
+                    <div class="icon"><i class="fa-solid fa-gem"></i></div>
+                    <h3>Quality</h3>
+                    <p>Pixel-perfect UI and mathematically sound backend systems. We do not compromise on the final product.</p>
+                </div>
+                <!-- Value 3 -->
+                <div class="glass-card value-card reveal">
+                    <div class="icon"><i class="fa-solid fa-handshake"></i></div>
+                    <h3>Transparency</h3>
+                    <p>Clear communication, honest timelines, and completely transparent pricing models. No hidden surprises.</p>
+                </div>
+                <!-- Value 4 -->
+                <div class="glass-card value-card reveal">
+                    <div class="icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
+                    <h3>Growth</h3>
+                    <p>We measure our success solely by the measurable growth and success we bring to our clients' businesses.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= FOUNDER MESSAGE ================= -->
+    <section class="founder-section">
+        <div class="container">
+            <div class="founder-box reveal">
+                <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Founder" class="founder-image">
+                <div class="founder-quote">
+                    <i class="fa-solid fa-quote-left"></i>
+                    <h3>"We are witnessing the most significant technological shift since the dawn of the internet. Our mission is to ensure your business is not just participating in the AI revolution, but actively leading it."</h3>
+                    <div class="founder-name">Alexander Wright</div>
+                    <div class="founder-title">Founder & CEO, Xova Digital</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= CTA ================= -->
+    <section class="cta" style="padding: 4rem 0 8rem;">
+        <div class="container">
+            <div class="cta-box reveal">
+                <div class="cta-content">
+                    <h2>Join Our <span class="text-gradient">Journey</span></h2>
+                    <p>Ready to work with a team that values excellence as much as you do?</p>
+                    <div class="cta-buttons">
+                        <a href="contact.html" class="btn btn-primary">Get in Touch</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid reveal">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <svg class="xova-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="footerLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#2E7BFF" />
+                                    <stop offset="100%" stop-color="#8A6BFF" />
+                                </linearGradient>
+                            </defs>
+                            <path class="x-path" d="M 30 20 L 70 80 M 70 20 L 30 80" stroke="url(#footerLogoGrad)" stroke-width="8" stroke-linecap="round" fill="none" />
+                            <circle class="dot" cx="50" cy="50" r="6" fill="#00E5FF" />
+                        </svg>
+                        <span class="brand-name">XOVA</span>
+                    </a>
+                    <p>A premium digital agency creating exceptional web experiences and AI-powered products for
+                        forward-thinking brands.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fa-brands fa-github"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="projects.html">Our Work</a></li>
+                        <li><a href="contact.html">Careers</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Web Development</a></li>
+                        <li><a href="services.html">Mobile Apps</a></li>
+                        <li><a href="services.html">AI Chatbots</a></li>
+                        <li><a href="services.html">RAG Systems</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Xova Digital Solutions. All rights reserved.</p>
+                <p>Designed with precision.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+</body>
+</html>
